@@ -1,3 +1,5 @@
+require 'pry'
+
 class Waiter
     @@all = []
     attr_accessor :name, :yrs_experience
@@ -22,5 +24,10 @@ class Waiter
 	def best_tipper
 		best_tipped_meal = meals.max {|meal_a, meal_b| meal_a.tip <=> meal_b.tip}
 		best_tipped_meal.customer
+	end
+
+	def most_freq_customer
+		customers = meals.map {|meal| meal.customer}
+		binding.pry
 	end
 end
